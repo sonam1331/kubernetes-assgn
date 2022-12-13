@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-deploy
+  labels:
+    app: django
+spec:
+  selector:
+    matchLabels:
+      app: django
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: django
+    spec:
+      containers:
+      - name: sonam
+        image: sonam1331/kubernetes-assgn:latest
+        ports:
+        - containerPort: 8000
